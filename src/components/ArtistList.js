@@ -1,10 +1,11 @@
 import React from 'react';
+import {NavLink} from "react-router-dom";
 
 
 
 const ArtistList = (props) => {
     const artists = props.artists.map((artist,i)=>
-        <li key={i} onClick={()=>alert(artist.name)}>{artist.name}</li>
+        <NavLink to={`${props.match.path}/${artist.id}`} key={i} onClick={()=>console.log(artist.name)}>{artist.name}</NavLink>
     );
     // console.log(props);
     // console.log(artists);
