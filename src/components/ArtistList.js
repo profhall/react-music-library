@@ -1,5 +1,6 @@
 import React from 'react';
 import {NavLink} from "react-router-dom";
+import AlbumList from "./AlbumList"
 
 
 
@@ -13,9 +14,18 @@ const ArtistList = (props) => {
     // console.log(artists);
     return (
 
-        <ul>
-            {artists}
-        </ul>
+        <div>
+            <ul>
+                <label><b>Listed Artists</b></label>
+                {artists}
+            </ul>
+            <ul>
+                <label><b>Artist Albums</b></label>
+                <AlbumList/>
+
+            </ul>
+
+        </div>
     );
 };
 
