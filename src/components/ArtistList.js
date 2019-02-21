@@ -1,5 +1,5 @@
 import React from 'react';
-import {NavLink} from "react-router-dom";
+import {NavLink, Route} from "react-router-dom";
 import AlbumList from "./AlbumList"
 
 
@@ -7,8 +7,20 @@ import AlbumList from "./AlbumList"
 const ArtistList = (props) => {
     const artists = props.artists.map((artist,i)=>
         <li>
-            <NavLink to={`${props.match.path}/${artist.id}`} key={i} onClick={()=>console.log(artist.name)}>{artist.name}</NavLink>
+            <NavLink to={`${props.match.path}/${artist.id}`} key={i} >{artist.name}</NavLink>
+            <div>
+                <Route
+                    path={`${props.match.path}/${artist.id}`}
+                    render = {(props)=>
+                        <AlbumList
+                            {...props}
+                            artist={artist.id}
+                        />
+                    }
+                />
+            </div>
         </li>
+
     );
     // console.log(props);
     // console.log(artists);
@@ -18,6 +30,9 @@ const ArtistList = (props) => {
             <ul>
                 <label><b>Listed Artists</b></label>
                 {artists}
+
+
+
             </ul>
             <ul>
                 <label><b>Artist Albums</b></label>

@@ -33,8 +33,15 @@ class App extends Component {
           <div>
             <Route exact path="/" component={Home} />
             <Route path="/about" component={About} />
-            <Route path="/artists" render = {(props)=> <ArtistList {...props} artists={this.state.artists} /> }
-
+            <Route
+                path="/artists"
+                render =
+                    {(props)=>
+                      <ArtistList
+                        {...props}
+                        artists={this.state.artists}
+                      />
+                    }
             />
           </div>
         </section>
