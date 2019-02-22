@@ -1,10 +1,25 @@
 import React from 'react';
 
-const AlbumList = () => {
+const AlbumList = (props) => {
+    console.log(props);
+
+    const artist = props.artists.find(artist =>
+        (artist.id === Number(props.artistID) )
+    );
+
+    const Artistalbums = artist.albums.map((album,i) =>(
+        <li key={i}>
+            {album.title}
+        </li>
+        )
+    );
+
     return (
-        <div>
-           AlbumList Here
-        </div>
+        <ul>
+            {/*{props.artistID}*/}
+            {/*{console.log(artist.albums)}*/}
+            {Artistalbums}
+        </ul>
     );
 };
 
