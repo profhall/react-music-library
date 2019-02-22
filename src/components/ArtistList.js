@@ -16,9 +16,6 @@ const ArtistList = (props) => {
 
     );
 
-
-    // console.log(props);
-    // console.log(artists);
     return (
 
         <div>
@@ -32,7 +29,7 @@ const ArtistList = (props) => {
                 <Route
                     path={`${props.match.path}/:artistId`}
                     render = {({match})=>{
-                        const artist = props.artists.find(artist => artist.id === Number(props.match.params.artistId));
+                        const artist = props.artists.find(artist => artist.id === Number(match.params.artistId));
                         return( <AlbumList{...props} albums={artist.albums}/>  )
                         }
 
