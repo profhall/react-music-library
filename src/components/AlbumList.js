@@ -1,13 +1,13 @@
 import React from 'react';
 
 const AlbumList = (props) => {
-    console.log(props);
+    //console.log(props);
+    //
+    // const artist = props.artists.find(artist =>
+    //     (artist.id === Number(props.artistID) )
+    // );
 
-    const artist = props.artists.find(artist =>
-        (artist.id === Number(props.artistID) )
-    );
-
-    const Artistalbums = artist.albums.map((album,i) =>(
+    const Artistalbums = props.albums.map((album,i) =>(
         <li key={i}>
             {album.title}
         </li>
