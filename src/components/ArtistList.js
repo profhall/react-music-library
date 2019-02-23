@@ -22,21 +22,19 @@ const ArtistList = (props) => {
             <ul>
                 <label><b>Listed Artists</b></label>
                 {artists}
-
             </ul>
             <ul>
                 <label><b>Artist Albums</b></label>
                 <Route
                     path={`${props.match.path}/:artistId`}
-                    render = {({match})=>{
+                    render =
+                    {
+                        ({match})=> {
                         const artist = props.artists.find(artist => artist.id === Number(match.params.artistId));
-                        return( <AlbumList{...props} albums={artist.albums}/>  )
+                        return( artist ? <AlbumList{...props} artistID={artist.id} albums={artist.albums}/> : null  )
                         }
-
-
                     }
                 />
-
             </ul>
 
         </div>
